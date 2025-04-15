@@ -1,0 +1,12 @@
+Instructions for the measurements on the ARM Cortex-M4 microcontroller.
+
+MbedTLS library is compiled using the following command:
+
+make CC=arm-none-eabi-gcc AR=arm-none-eabi-ar STRIP=arm-none-eabi-strip RANLIB=arm-none-eabi-ranlib  CFLAGS="-mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fno-common --specs=nano.specs --specs=nosys.specs -DSTM32F4 -DCORTEX_M4 -DWITH_PERFORMANCE_BENCHMARKING -O2" LDFLAGS="--static -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group -T../STM32F407/common/stm32f405x6_CCM.ld -nostartfiles -Wl,--gc-sections,--print-gc-sections -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L../STM32F407/libopencm3/lib" SYS_CALLS=syscalls.c VERBOSE=1 lib
+
+
+The main.c for the measuruments in in the STM32F407/STM32F407-unprotected library and is compiled using make. 
+
+Instructions for the communication with the microcontroller can be found in https://github.com/sca-secure-library-sca25519/sca25519.
+
+
